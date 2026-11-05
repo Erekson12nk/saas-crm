@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пульс — простая CRM для малого бизнеса</title>
+  <meta name="description" content="Пульс — CRM для малого бизнеса: заявки, клиенты, задачи и аналитика в одном окне, заявки из Telegram без копипаста. Концепт-проект.">
+  <meta name="theme-color" content="#0b0d14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237c6cff'/%3E%3Cpath d='M5 17h5l3-7 4 13 3-9 2 3h5' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('puls-theme'); } catch (e) {}
+      if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Пульс — на главную">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="url(#lg)"/>
+          <path d="M5 17h5l3-7 4 13 3-9 2 3h5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#8b7bff"/><stop offset="1" stop-color="#4f46e5"/></linearGradient></defs>
+        </svg>
+        <span class="logo__text">Пульс</span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#how">Как это работает</a></li>
+          <li><a href="#calc">Калькулятор</a></li>
+          <li><a href="#pricing">Тарифы</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a class="btn btn--ghost" href="#cta">Войти</a>
+          <a class="btn btn--primary" href="#cta">Попробовать бесплатно</a>
+        </div>
+      </nav>
+
+      <div class="header__tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Переключить тему" title="Сменить тему">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        </button>
+        <a class="btn btn--ghost header__login" href="#cta">Войти</a>
+        <a class="btn btn--primary header__cta" href="#cta">Попробовать бесплатно</a>
+        <button class="icon-btn burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="badge reveal"><span class="badge__dot"></span>Новое: заявки из Telegram-бота прямо в воронку</p>
+          <h1 class="hero__title reveal">Держите руку на&nbsp;<span class="grad">пульсе</span> своего бизнеса</h1>
+          <p class="hero__lead reveal">Заявки, клиенты, задачи и аналитика — в одном спокойном окне. Пульс собирает обращения из Telegram, сайта и соцсетей, напоминает о звонках и показывает, где теряются деньги.</p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary btn--lg" href="#cta">Попробовать бесплатно
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#how">Как это работает</a>
+          </div>
+          <ul class="hero__notes reveal">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>14 дней бесплатно</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Без привязки карты</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Запуск за 15 минут</li>
+          </ul>
+        </div>
+
+        <!-- Dashboard mockup -->
+        <div class="mockup reveal" role="img" aria-label="Интерфейс Пульса: панель с показателями, графиком заявок и канбан-доской сделок">
+          <div class="mockup__bar" aria-hidden="true">
+            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <span class="mockup__url">app.puls-crm.example / дашборд</span>
+          </div>
+          <div class="app" aria-hidden="true">
+            <aside class="app__side">
+              <div class="app__brand"><span class="app__brand-mark"></span><b>Пульс</b></div>
+              <ul class="app__menu">
+                <li class="is-active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Дашборд</span></li>
+                <li><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Заявки</span><em>12</em></li>
+                <li><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.7.7 2.7 2.4 3 5.2"/></svg><span>Клиенты</span></li>
+                <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>Задачи</span></li>
+                <li><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Аналитика</span></li>
+                <li><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2.5L11.5 20l3-5 5 4z"/></svg><span>Telegram</span></li>
+              </ul>
+            </aside>
+            <div class="app__main">
+              <div class="app__head">
+                <div>
+                  <p class="app__hello">Доброе утро, Анна</p>
+                  <p class="app__sub">Сегодня 4 задачи и 3 новые заявки</p>
+                </div>
+                <span class="app__period">Ноябрь ▾</span>
+              </div>
+              <div class="kpis">
+                <div class="kpi"><span class="kpi__label">Заявки</span><b class="kpi__value">128</b><span class="kpi__delta up">+12%</span></div>
+                <div class="kpi"><span class="kpi__label">Конверсия</span><b class="kpi__value">34%</b><span class="kpi__delta up">+4 п.</span></div>
+                <div class="kpi"><span class="kpi__label">Выручка</span><b class="kpi__value">482к ₽</b><span class="kpi__delta up">+18%</span></div>
+                <div class="kpi"><span class="kpi__label">Просрочено</span><b class="kpi__value">2</b><span class="kpi__delta down">−5</span></div>
+              </div>
+              <div class="app__grid">
+                <div class="card chart">
+                  <div class="card__head"><b>Заявки по дням</b><span class="legend"><i class="l1"></i>Ноябрь <i class="l2"></i>Октябрь</span></div>
+                  <svg class="chart__svg" viewBox="0 0 300 110" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".35"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient>
+                    </defs>
+                    <g class="chart__grid"><line x1="0" y1="20" x2="300" y2="20"/><line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="80" x2="300" y2="80"/></g>
+                    <path class="chart__prev" d="M0 88 L25 84 L50 86 L75 76 L100 80 L125 70 L150 74 L175 66 L200 70 L225 62 L250 66 L275 58 L300 60"/>
+                    <path class="chart__area" d="M0 82 L25 74 L50 78 L75 60 L100 64 L125 46 L150 52 L175 36 L200 42 L225 26 L250 32 L275 18 L300 22 L300 110 L0 110Z" fill="url(#area)"/>
+                    <path class="chart__line" pathLength="1" d="M0 82 L25 74 L50 78 L75 60 L100 64 L125 46 L150 52 L175 36 L200 42 L225 26 L250 32 L275 18 L300 22"/>
+                    <circle class="chart__dot" cx="275" cy="18" r="4"/>
+                  </svg>
+                </div>
+                <div class="card sources">
+                  <div class="card__head"><b>Источники</b></div>
+                  <ul>
+                    <li><span>Telegram</span><i style="--w:62%"></i><em>62%</em></li>
+                    <li><span>Сайт</span><i style="--w:24%"></i><em>24%</em></li>
+                    <li><span>ВКонтакте</span><i style="--w:14%"></i><em>14%</em></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="kanban">
+                <div class="kcol">
+                  <p class="kcol__title"><i class="c-blue"></i>Новые <em>3</em></p>
+                  <div class="kcard"><b>Маникюр + покрытие</b><span>Ольга К. · Telegram</span><em>2 400 ₽</em></div>
+                  <div class="kcard"><b>Абонемент на 8 занятий</b><span>Игорь Л. · Сайт</span><em>6 800 ₽</em></div>
+                </div>
+                <div class="kcol">
+                  <p class="kcol__title"><i class="c-amber"></i>В работе <em>5</em></p>
+                  <div class="kcard"><b>Логотип и фирменный стиль</b><span>Кофейня «Зерно»</span><em>45 000 ₽</em></div>
+                  <div class="kcard kcard--hl"><b>Опт: 40 упаковок</b><span>ИП Смирнов · звонок в 14:00</span><em>18 200 ₽</em></div>
+                </div>
+                <div class="kcol">
+                  <p class="kcol__title"><i class="c-green"></i>Оплачено <em>8</em></p>
+                  <div class="kcard"><b>Окрашивание AirTouch</b><span>Мария Д.</span><em>9 500 ₽</em></div>
+                  <div class="kcard"><b>Сайт-визитка</b><span>Студия «Линия»</span><em>32 000 ₽</em></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="toast" aria-hidden="true">
+            <span class="toast__icon"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2.5L11.5 20l3-5 5 4z"/></svg></span>
+            <span><b>Новая заявка из Telegram</b><br>«Здравствуйте, есть окно на субботу?»</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FITS FOR ============ -->
+    <section class="fits" aria-labelledby="fits-title">
+      <div class="container fits__inner">
+        <h2 class="fits__title" id="fits-title">Подходит для:</h2>
+        <ul class="chips">
+          <li class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg>Салоны красоты</li>
+          <li class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>Студии и школы</li>
+          <li class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-1.5 12.5a1.7 1.7 0 0 1-1.7 1.5H7.2a1.7 1.7 0 0 1-1.7-1.5zM9 7V5.5a3 3 0 0 1 6 0V7"/></svg>Магазины</li>
+          <li class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Агентства</li>
+          <li class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></svg>Сервисы и ремонт</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Возможности</p>
+          <h2 class="section__title" id="features-title">Всё, что нужно для продаж. Ничего лишнего</h2>
+          <p class="section__lead">Пульс закрывает ежедневные задачи продаж и делает это просто. Никаких курсов по внедрению и толстых инструкций — команда разбирается за вечер.</p>
+        </div>
+        <ul class="features">
+          <li class="feature reveal">
+            <span class="feature__icon fi-violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 8L9 4l-3 8H2"/></svg></span>
+            <h3>Единая лента заявок</h3>
+            <p>Обращения из Telegram, с сайта, ВКонтакте и почты падают в одну ленту. Ни одна заявка не потеряется в личке.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__icon fi-teal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></svg></span>
+            <h3>Воронка сделок</h3>
+            <p>Перетаскивайте карточки между этапами. Видно, кто на каком шаге, сколько денег в работе и что зависло.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__icon fi-amber"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+            <h3>Задачи и напоминания</h3>
+            <p>«Перезвонить в четверг» превращается в задачу с дедлайном. Пульс напомнит в Telegram, если менеджер забыл.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__icon fi-rose"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 11h6M19 8v6"/></svg></span>
+            <h3>Карточка клиента</h3>
+            <p>Вся история в одном месте: переписка, покупки, заметки и файлы. Новый сотрудник сразу в курсе.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__icon fi-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+            <h3>Понятная аналитика</h3>
+            <p>Конверсия, средний чек, выручка по менеджерам и источникам. Отчёт собирается сам — без выгрузок в Excel.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature__icon fi-green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2.5L11.5 20l3-5 5 4z"/></svg></span>
+            <h3>Telegram-бот из коробки</h3>
+            <p>Подключите бота за пару минут: он принимает заявки, отвечает на типовые вопросы и присылает уведомления команде.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS (TABS) ============ -->
+    <section class="section section--alt" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Как это работает</p>
+          <h2 class="section__title" id="how-title">Три шага от хаоса в мессенджерах до порядка</h2>
+        </div>
+
+        <div class="tabs reveal">
+          <div class="tabs__list" role="tablist" aria-label="Шаги работы с Пульсом" aria-orientation="vertical">
+            <button class="tab" role="tab" type="button" id="tab-1" aria-controls="panel-1" aria-selected="true">
+              <span class="tab__num">01</span>
+              <span class="tab__text"><b>Подключите каналы</b><small>Telegram, сайт, соцсети</small></span>
+            </button>
+            <button class="tab" role="tab" type="button" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">
+              <span class="tab__num">02</span>
+              <span class="tab__text"><b>Ведите сделки</b><small>Воронка и задачи</small></span>
+            </button>
+            <button class="tab" role="tab" type="button" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">
+              <span class="tab__num">03</span>
+              <span class="tab__text"><b>Смотрите результат</b><small>Отчёты и выводы</small></span>
+            </button>
+          </div>
+
+          <div class="tabs__panels">
+            <div class="tabpanel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+              <div class="tabpanel__copy">
+                <h3>Все входящие — в одном месте</h3>
+                <p>Добавьте токен Telegram-бота и вставьте на сайт форму одной строкой кода. С этой минуты каждое обращение становится карточкой с контактом и источником.</p>
+                <ul class="checks">
+                  <li>Бот создаётся за 2 минуты в @BotFather</li>
+                  <li>Форма для сайта на Тильде, WordPress и любом конструкторе</li>
+                  <li>Дубли клиентов склеиваются автоматически</li>
+                </ul>
+              </div>
+              <div class="mini" aria-hidden="true">
+                <div class="mini__head"><b>Каналы</b><span class="pill pill--ok">3 подключено</span></div>
+                <ul class="channels">
+                  <li><span class="ch ch--tg"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2.5L11.5 20l3-5 5 4z"/></svg></span><span><b>Telegram-бот</b><small>@studio_line_bot</small></span><i class="switch-mini on"></i></li>
+                  <li><span class="ch ch--web"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span><span><b>Форма на сайте</b><small>studio-line.example</small></span><i class="switch-mini on"></i></li>
+                  <li><span class="ch ch--vk"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M7 9c.5 4 2.5 6 5.5 6M13 9v6M13 12c1.5 0 2.8-1.2 3.2-3M13 12c1.5 0 2.8 1.2 3.4 3"/></svg></span><span><b>ВКонтакте</b><small>Сообщения сообщества</small></span><i class="switch-mini on"></i></li>
+                  <li><span class="ch ch--mail"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span><span><b>Почта</b><small>Не подключено</small></span><i class="switch-mini"></i></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tabpanel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+              <div class="tabpanel__copy">
+                <h3>Каждая сделка под контролем</h3>
+                <p>Настройте этапы под свой процесс: «Новая → Записан → Пришёл → Оплачено». Назначайте ответственных и ставьте задачи прямо в карточке.</p>
+                <ul class="checks">
+                  <li>Этапы и поля настраиваются без программиста</li>
+                  <li>Шаблоны ответов для типовых вопросов</li>
+                  <li>Напоминания о звонках в Telegram</li>
+                </ul>
+              </div>
+              <div class="mini" aria-hidden="true">
+                <div class="mini__head"><b>Задачи на сегодня</b><span class="pill">4 из 6</span></div>
+                <ul class="tasks">
+                  <li class="done"><i></i><span>Подтвердить запись Ольги К. на 12:00</span><em>09:30</em></li>
+                  <li class="done"><i></i><span>Отправить КП кофейне «Зерно»</span><em>11:00</em></li>
+                  <li><i></i><span>Позвонить ИП Смирнову по оптовому заказу</span><em class="hot">14:00</em></li>
+                  <li><i></i><span>Напомнить об оплате студии «Линия»</span><em>16:30</em></li>
+                  <li><i></i><span>Собрать отзыв после окрашивания</span><em>18:00</em></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tabpanel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+              <div class="tabpanel__copy">
+                <h3>Цифры, по которым можно принимать решения</h3>
+                <p>Пульс сам считает воронку и показывает, на каком этапе уходят клиенты. В понедельник утром руководитель получает краткую сводку в Telegram.</p>
+                <ul class="checks">
+                  <li>Конверсия по этапам и источникам</li>
+                  <li>Выручка и средний чек по менеджерам</li>
+                  <li>Еженедельный отчёт в мессенджер</li>
+                </ul>
+              </div>
+              <div class="mini" aria-hidden="true">
+                <div class="mini__head"><b>Воронка за октябрь</b><span class="pill pill--ok">+6% к сентябрю</span></div>
+                <ul class="funnel">
+                  <li style="--w:100%"><span>Заявки</span><b>214</b></li>
+                  <li style="--w:72%"><span>Ответили</span><b>154</b></li>
+                  <li style="--w:48%"><span>Записались</span><b>103</b></li>
+                  <li style="--w:34%"><span>Оплатили</span><b>73</b></li>
+                </ul>
+                <div class="bars">
+                  <div><i style="--h:45%"></i><span>Пн</span></div>
+                  <div><i style="--h:70%"></i><span>Вт</span></div>
+                  <div><i style="--h:58%"></i><span>Ср</span></div>
+                  <div><i style="--h:88%"></i><span>Чт</span></div>
+                  <div><i style="--h:76%"></i><span>Пт</span></div>
+                  <div><i style="--h:94%"></i><span>Сб</span></div>
+                  <div><i style="--h:30%"></i><span>Вс</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="section" id="calc" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Калькулятор экономии</p>
+          <h2 class="section__title" id="calc-title">Сколько времени вернёт вам Пульс</h2>
+          <p class="section__lead">Подвиньте ползунки — расчёт обновится сразу.</p>
+        </div>
+
+        <div class="calc reveal">
+          <form class="calc__inputs" id="calc-form" onsubmit="return false">
+            <div class="field-range">
+              <div class="field-range__top">
+                <label for="r-managers">Менеджеров в команде</label>
+                <output id="o-managers" for="r-managers">3</output>
+              </div>
+              <input type="range" id="r-managers" min="1" max="30" step="1" value="3">
+              <div class="field-range__scale" aria-hidden="true"><span>1</span><span>30</span></div>
+            </div>
+            <div class="field-range">
+              <div class="field-range__top">
+                <label for="r-leads">Заявок в месяц</label>
+                <output id="o-leads" for="r-leads">300</output>
+              </div>
+              <input type="range" id="r-leads" min="20" max="3000" step="10" value="300">
+              <div class="field-range__scale" aria-hidden="true"><span>20</span><span>3 000</span></div>
+            </div>
+            <div class="field-range">
+              <div class="field-range__top">
+                <label for="r-rate">Стоимость часа сотрудника</label>
+                <output id="o-rate" for="r-rate">500 ₽</output>
+              </div>
+              <input type="range" id="r-rate" min="200" max="2000" step="50" value="500">
+              <div class="field-range__scale" aria-hidden="true"><span>200 ₽</span><span>2 000 ₽</span></div>
+            </div>
+          </form>
+
+          <div class="calc__result" aria-live="polite">
+            <div class="calc__stat">
+              <span class="calc__label">Экономия времени</span>
+              <b class="calc__big"><span id="res-hours">48</span> ч</b>
+              <span class="calc__hint">в месяц на всю команду</span>
+            </div>
+            <div class="calc__stat">
+              <span class="calc__label">Экономия денег</span>
+              <b class="calc__big calc__big--accent"><span id="res-money">24 000</span> ₽</b>
+              <span class="calc__hint">в месяц · <span id="res-year">288 000</span> ₽ в год</span>
+            </div>
+            <div class="calc__bar" aria-hidden="true"><i id="res-bar"></i></div>
+            <p class="calc__note">Оценка, а не обещание. Считаем 6 минут экономии на каждой заявке (не нужно искать переписку и переносить данные) и 6 часов в месяц на менеджера на отчётах и планёрках.</p>
+            <a class="btn btn--primary btn--block" href="#pricing">Подобрать тариф</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section--alt" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Тарифы</p>
+          <h2 class="section__title" id="pricing-title">Честные цены без скрытых платежей</h2>
+          <p class="section__lead">Все тарифы — 14 дней бесплатно. Сменить или отменить можно в любой момент.</p>
+        </div>
+
+        <div class="billing reveal">
+          <span class="billing__label" id="bill-m">Помесячно</span>
+          <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="bill-m bill-y" id="billing-switch">
+            <span class="switch__thumb"></span>
+          </button>
+          <span class="billing__label" id="bill-y">За год <span class="save">−20%</span></span>
+        </div>
+
+        <ul class="plans">
+          <li class="plan reveal">
+            <h3 class="plan__name">Старт</h3>
+            <p class="plan__desc">Для мастера или небольшой студии</p>
+            <p class="plan__price"><b data-month="990" data-year="790">990</b> <span>₽ / мес</span></p>
+            <p class="plan__billed" data-month="Оплата каждый месяц" data-year="9 480 ₽ при оплате за год">Оплата каждый месяц</p>
+            <a class="btn btn--outline btn--block" href="#cta">Начать бесплатно</a>
+            <ul class="plan__list">
+              <li>До 2 пользователей</li>
+              <li>500 заявок в месяц</li>
+              <li>Воронка и задачи</li>
+              <li>Telegram-бот</li>
+            </ul>
+          </li>
+          <li class="plan plan--hl reveal">
+            <span class="plan__tag">Популярный выбор</span>
+            <h3 class="plan__name">Команда</h3>
+            <p class="plan__desc">Для салона, магазина или агентства</p>
+            <p class="plan__price"><b data-month="2490" data-year="1990">2 490</b> <span>₽ / мес</span></p>
+            <p class="plan__billed" data-month="Оплата каждый месяц" data-year="23 880 ₽ при оплате за год">Оплата каждый месяц</p>
+            <a class="btn btn--primary btn--block" href="#cta">Попробовать 14 дней</a>
+            <ul class="plan__list">
+              <li>До 10 пользователей</li>
+              <li>Безлимит заявок</li>
+              <li>Все каналы: Telegram, сайт, ВК, почта</li>
+              <li>Аналитика и отчёты в Telegram</li>
+              <li>Шаблоны ответов</li>
+            </ul>
+          </li>
+          <li class="plan reveal">
+            <h3 class="plan__name">Бизнес</h3>
+            <p class="plan__desc">Для сети точек и больших команд</p>
+            <p class="plan__price"><b data-month="5990" data-year="4790">5 990</b> <span>₽ / мес</span></p>
+            <p class="plan__billed" data-month="Оплата каждый месяц" data-year="57 480 ₽ при оплате за год">Оплата каждый месяц</p>
+            <a class="btn btn--outline btn--block" href="#cta">Связаться с нами</a>
+            <ul class="plan__list">
+              <li>Безлимит пользователей</li>
+              <li>Несколько филиалов</li>
+              <li>Права доступа и роли</li>
+              <li>API и вебхуки</li>
+              <li>Персональный менеджер</li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Comparison table -->
+        <div class="compare reveal">
+          <button class="compare__toggle" type="button" aria-expanded="false" aria-controls="compare-body">
+            <span>Сравнить тарифы подробно</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <h3 class="compare__title">Сравнение тарифов</h3>
+          <div class="compare__body" id="compare-body">
+            <table class="table">
+              <caption class="sr-only">Сравнение возможностей тарифов Старт, Команда и Бизнес</caption>
+              <thead>
+                <tr><th scope="col">Возможность</th><th scope="col">Старт</th><th scope="col" class="col-hl">Команда</th><th scope="col">Бизнес</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Пользователи</th><td>2</td><td class="col-hl">10</td><td>∞</td></tr>
+                <tr><th scope="row">Заявок в месяц</th><td>500</td><td class="col-hl">∞</td><td>∞</td></tr>
+                <tr><th scope="row">Воронки продаж</th><td>1</td><td class="col-hl">5</td><td>∞</td></tr>
+                <tr><th scope="row">Telegram-бот</th><td><span class="yes" aria-label="Есть"></span></td><td class="col-hl"><span class="yes" aria-label="Есть"></span></td><td><span class="yes" aria-label="Есть"></span></td></tr>
+                <tr><th scope="row">Форма для сайта, ВК, почта</th><td><span class="no" aria-label="Нет"></span></td><td class="col-hl"><span class="yes" aria-label="Есть"></span></td><td><span class="yes" aria-label="Есть"></span></td></tr>
+                <tr><th scope="row">Аналитика и отчёты</th><td>Базовая</td><td class="col-hl">Полная</td><td>Полная</td></tr>
+                <tr><th scope="row">Роли и права доступа</th><td><span class="no" aria-label="Нет"></span></td><td class="col-hl"><span class="no" aria-label="Нет"></span></td><td><span class="yes" aria-label="Есть"></span></td></tr>
+                <tr><th scope="row">API и вебхуки</th><td><span class="no" aria-label="Нет"></span></td><td class="col-hl"><span class="no" aria-label="Нет"></span></td><td><span class="yes" aria-label="Есть"></span></td></tr>
+                <tr><th scope="row">Поддержка</th><td>Чат</td><td class="col-hl">Чат, 15 мин</td><td>Менеджер</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <p class="eyebrow">Вопросы и ответы</p>
+          <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+        </div>
+        <div class="accordion reveal">
+          <div class="acc">
+            <h3 class="acc__h"><button class="acc__btn" type="button" id="faq-b1" aria-expanded="false" aria-controls="faq-p1">Нужно ли что-то устанавливать?<span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1" hidden><p>Нет. Пульс работает в браузере на компьютере и телефоне. Уведомления приходят в Telegram, поэтому отдельное приложение не обязательно.</p></div>
+          </div>
+          <div class="acc">
+            <h3 class="acc__h"><button class="acc__btn" type="button" id="faq-b2" aria-expanded="false" aria-controls="faq-p2">Как перенести клиентов из Excel или другой CRM?<span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2" hidden><p>Загрузите файл XLSX или CSV — Пульс сам сопоставит колонки с полями карточки. Если что-то пойдёт не так, поддержка поможет с импортом бесплатно.</p></div>
+          </div>
+          <div class="acc">
+            <h3 class="acc__h"><button class="acc__btn" type="button" id="faq-b3" aria-expanded="false" aria-controls="faq-p3">Что будет после пробного периода?<span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3" hidden><p>Мы напомним за три дня до окончания. Если не выберете тариф, аккаунт перейдёт в режим «только чтение» — данные сохранятся ещё на 60 дней.</p></div>
+          </div>
+          <div class="acc">
+            <h3 class="acc__h"><button class="acc__btn" type="button" id="faq-b4" aria-expanded="false" aria-controls="faq-p4">Где хранятся данные?<span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4" hidden><p>На серверах в России, с ежедневным резервным копированием. Доступ к данным есть только у вашей команды, выгрузить их можно в любой момент.</p></div>
+          </div>
+          <div class="acc">
+            <h3 class="acc__h"><button class="acc__btn" type="button" id="faq-b5" aria-expanded="false" aria-controls="faq-p5">Можно ли оплатить по счёту для юрлица?<span class="acc__icon" aria-hidden="true"></span></button></h3>
+            <div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5" hidden><p>Да. Для ИП и ООО выставляем счёт и закрывающие документы, работаем через ЭДО. Оплатить можно и картой.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" id="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__box reveal">
+          <div class="cta__copy">
+            <h2 id="cta-title">Начните вести клиентов в Пульсе уже сегодня</h2>
+            <p>Оставьте почту — пришлём доступ к пробному аккаунту на 14 дней. Без карты и обязательств.</p>
+          </div>
+          <form class="cta__form" id="cta-form" novalidate>
+            <div class="cta__row">
+              <label class="sr-only" for="email">Электронная почта</label>
+              <input class="input" type="email" id="email" name="email" placeholder="you@company.ru" autocomplete="email" aria-describedby="email-msg" required>
+              <button class="btn btn--light btn--lg" type="submit">Получить доступ</button>
+            </div>
+            <p class="cta__msg" id="email-msg" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo" href="#top" aria-label="Пульс — наверх">
+          <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="#6d5dfc"/>
+            <path d="M5 17h5l3-7 4 13 3-9 2 3h5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo__text">Пульс</span>
+        </a>
+        <p>Простая CRM для малого бизнеса: заявки, клиенты, задачи и аналитика.</p>
+      </div>
+      <nav class="footer__cols" aria-label="Ссылки в подвале">
+        <div>
+          <p class="footer__h">Продукт</p>
+          <ul><li><a href="#features">Возможности</a></li><li><a href="#how">Как это работает</a></li><li><a href="#pricing">Тарифы</a></li></ul>
+        </div>
+        <div>
+          <p class="footer__h">Помощь</p>
+          <ul><li><a href="#faq">Частые вопросы</a></li><li><a href="#calc">Калькулятор</a></li><li><a href="#cta">Пробный доступ</a></li></ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p class="footer__honest"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Концепт-проект. Продукт вымышлен.</p>
+      <p>Все имена, цены и данные на странице — демонстрационные. © 2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
